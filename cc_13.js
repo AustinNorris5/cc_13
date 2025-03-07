@@ -13,6 +13,13 @@ function addEmployeeCard(name, position) {
     let employeePosition = document.createElement("p");
     employeePosition.textContent = position;
 
+//Add an event listener to each employee card (or an edit button within it) that, on double-click, swaps static content with input fields.
+    let editButton = document.createElement("button");
+    editButton.textContent = "Edit";
+    editButton.setAttribute("class", "editButton");
+
+    editButton.addEventListener("click", () => enableEditing(card, employeeName, employeePosition, editButton));
+
 //A "Remove" button for deleting the card
     let removeButton = document.createElement("button");
     removeButton.textContent = "Remove";
@@ -51,5 +58,3 @@ let employeeCardsArray = Array.from(employeeCards);
 employeeCardsArray.forEach(card => {
     card.classList.add('highlight');
 });
-
-
